@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "newToDo/1.0.0": {
+        "dependencies": {
+          "ToDoApp_Methods": "1.0.0"
+        },
+        "runtime": {
+          "newToDo.dll": {}
+        }
+      },
+      "ToDoApp_Methods/1.0.0": {
+        "runtime": {
+          "ToDoApp_Methods.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "newToDo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ToDoApp_Methods/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
