@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using ToDoApp_Methods;
 
@@ -35,29 +36,28 @@ namespace newToDo
 
             Header.HeaderDisplay("Login Page");
             MenuMessage.DisplayActionMessage("Please enter your Password: ");
-            string password = Console.ReadLine();
+            string password = Validation.GetMaskedPassword();
             while (Validation.EmptyString(password) || !Validation.IsValidPassword(password))
             {
                 if (Validation.EmptyString(password))
                 {
                     MenuMessage.DisplayErrorMessage("Password Shouldn't not be empty", "Please enter a valid password:");
-                    password = Console.ReadLine();
+                    password = Validation.GetMaskedPassword();
                 }
 
                 else if (!Validation.IsValidEmail(password))
                 {
                     MenuMessage.DisplayErrorMessage("Password Requiremnet not met, Your Password must contain \nat least 1 Uppercase, Lowercase and Number", "Please enter a valid password:");
-                    password = Console.ReadLine();
+                    password = Validation.GetMaskedPassword();
                 }
             }
 
-            // User currentUser = users.FirstOrDefault(x => x.Username == loginUsername && x.Password == loginPassword);
-            User currentUser = loginManager.Login(Users, username, password);
+            User newUser = loginManager.Login(Users, username, password);
 
-            // Header.HeaderDisplay("Login Page");
+   
+            User currentUser = Users.FirstOrDefault(u => u.Username == username && u.Password == password);
             if (currentUser != null)
             {
-                //Animation.LoginLoading();
                 Header.HeaderDisplay("To do List Application");
                 //MenuMessage.DisplaySucessMessage("Login Sucessful");
                 bool isChoice = true;
@@ -73,23 +73,11 @@ namespace newToDo
                     int type;
                     while (Validation.TryParseInt(choice, out type))
                     {
-                        //Header.HeaderDisplay("To do List Application");
-                        //Console.WriteLine(MenuMessage.todolistmenu, "\n\n");
-                        //Console.ForegroundColor = ConsoleColor.Red;
-                        //Console.WriteLine($"{choice} {MenuMessage.IntErrorMessage}");
-                        //Console.ResetColor();
-                        //Console.WriteLine($"{MenuMessage.ValidOptionMessage}");
-                        ////Console.WriteLine(MenuMessage.EnterOption);
-                        //MenuMessage.DisplayActionMessage("Your Option: ");
-
                         Header.HeaderDisplay("To do List Application");
-                        MenuMessage.DisplayActionMessage("Todo List Menu:\n \n1. Add New Item\n2. View Todo List\n3. Edit Existing Item\n4. Mark Item as Completed\n5. Delete Item\n6. View Your Profile\n7. Logout ");
+                        MenuMessage.DisplayActionMessage("\n\nTodo List Menu:\n \n1. Add New Item\n2. View Todo List\n3. Edit Existing Item\n4. Mark Item as Completed\n5. Delete Item\n6. View Your Profile\n7. Logout\n\n ");
                         MenuMessage.DisplayErrorMessage($"{choice} is an Invalid Input, your option should not contain alphabet, character.", "Please enter a valid option. eg 1,2,3: ");
                         choice = Console.ReadLine();
                     }
-
-
-                    // Console.Clear();
 
                     switch (choice)
                     {
@@ -134,13 +122,14 @@ namespace newToDo
                         case "7":
                             Console.Clear();
                             isChoice = false;
-                            Console.WriteLine();
+                            Header.HeaderDisplay("To do List Application");
                             Console.WriteLine("You've Logged out successfully.");
                             Console.WriteLine();
                             break;
 
                         default:
-                            Console.WriteLine("Invalid choice, please try again.");
+                            Header.HeaderDisplay("To do List Application");
+                            MenuMessage.DisplayErrorMessage($"{choice} is an Invalid Input, your option should not contain alphabet, character.", "Please enter a valid option.\n");
                             break;
 
                         //default:
@@ -160,5 +149,6 @@ namespace newToDo
 
 
         }
+
     }
 }

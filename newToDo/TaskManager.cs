@@ -23,6 +23,7 @@ namespace newToDo
                 title = Console.ReadLine();
             }
 
+            Header.HeaderDisplay("To do List Application");
             MenuMessage.DisplayActionMessage("Enter the todo Description: ");
             string description = Console.ReadLine();
             while (string.IsNullOrWhiteSpace(description))
@@ -31,6 +32,7 @@ namespace newToDo
                 description = Console.ReadLine();
             }
 
+            Header.HeaderDisplay("To do List Application");
             MenuMessage.DisplayActionMessage("Enter the todo Due Date (yyyy/MM/dd): ");
             DateTime duedate = DateTime.Parse(Console.ReadLine());
             DateTime date = DateTime.Now;
@@ -44,6 +46,7 @@ namespace newToDo
             string prioritylevel = null;
             while (!validInputs.Contains(prioritylevel))
             {
+                Header.HeaderDisplay("To do List Application");
                 MenuMessage.DisplayActionMessage("Enter the todo Priority Level (High, Medium, Low): ");
                 //Task.PriorityLevel = Console.ReadLine();
                 prioritylevel = Console.ReadLine();
@@ -324,6 +327,7 @@ namespace newToDo
                 {
                     currentUser.TodoList.RemoveAt(deleteIndex);
 
+                    Header.HeaderDisplay("To do List Application");
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Item deleted successfully!");
                     Console.ResetColor();

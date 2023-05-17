@@ -45,7 +45,7 @@ namespace newToDo
                 if (Validation.EmptyString(username))
                 {
                     //Header.HeaderDisplay();
-                    MenuMessage.DisplayErrorMessage("Name Shouldn't not be empty", "Please enter a valid username:");
+                    MenuMessage.DisplayErrorMessage("Username Shouldn't not be empty", "Please enter a valid username:");
                     username = Console.ReadLine();
                 }
 
@@ -91,29 +91,29 @@ namespace newToDo
 
             Header.HeaderDisplay("Registration Page");
             MenuMessage.DisplayActionMessage("Please enter your Password: ");
-            string password = Console.ReadLine();
+            string password = Validation.GetMaskedPassword();
             while (Validation.EmptyString(password) || !Validation.IsValidPassword(password))
             {
                 if (Validation.EmptyString(password))
                 {
                     MenuMessage.DisplayErrorMessage("Password Shouldn't not be empty", "Please enter a valid password:");
-                    password = Console.ReadLine();
+                    password = Validation.GetMaskedPassword();
                 }
 
                 else if (!Validation.IsValidPassword(password))
                 {
                     MenuMessage.DisplayErrorMessage("Password Requiremnet not met, Your Password must contain \nat least 1 Uppercase, Lowercase and Number", "Please enter a valid password:");
-                    password = Console.ReadLine();
+                    password = Validation.GetMaskedPassword();
                 }
             }
 
             Header.HeaderDisplay("Registration Page");
             MenuMessage.DisplayActionMessage("Please confirm your Password: ");
-            string ConfirmPassword = Console.ReadLine();
+            string ConfirmPassword = Validation.GetMaskedPassword();
             while (ConfirmPassword != password)
             {
                 MenuMessage.DisplayErrorMessage("Password does not match", "Please enter the correct password:");
-                ConfirmPassword = Console.ReadLine();
+                ConfirmPassword = Validation.GetMaskedPassword();
             }
 
             if (Validation.UserExists(Users, user))

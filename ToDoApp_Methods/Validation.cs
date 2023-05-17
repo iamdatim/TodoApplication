@@ -71,6 +71,37 @@ namespace ToDoApp_Methods
 
 
 
+        public static string GetMaskedPassword()
+        {
+            string password = "";
+            while (true)
+            {
+                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                char keyPressed = keyInfo.KeyChar;
+
+                // Break the loop when Enter key is pressed
+                if (keyPressed == '\r')
+                    break;
+
+                // Handle backspace
+                if (keyPressed == '\b')
+                {
+                    if (password.Length > 0)
+                    {
+                        password = password.Remove(password.Length - 1);
+                        Console.Write("\b \b"); // Clear the character on the console
+                    }
+                }
+                else
+                {
+                    password += keyPressed;
+                    Console.Write("*"); // Display asterisk symbol instead of the actual character
+                }
+            }
+
+            Console.WriteLine(); // Move to the next line after password entry
+            return password;
+        }
 
     }
 }
