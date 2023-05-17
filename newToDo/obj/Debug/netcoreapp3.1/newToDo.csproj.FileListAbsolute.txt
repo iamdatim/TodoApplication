@@ -15,3 +15,20 @@ C:\Users\Dairo.T\Desktop\Personnal Project\newToDo\obj\Debug\netcoreapp3.1\newTo
 C:\Users\Dairo.T\Desktop\Personnal Project\newToDo\obj\Debug\netcoreapp3.1\newToDo.dll
 C:\Users\Dairo.T\Desktop\Personnal Project\newToDo\obj\Debug\netcoreapp3.1\newToDo.pdb
 C:\Users\Dairo.T\Desktop\Personnal Project\newToDo\obj\Debug\netcoreapp3.1\newToDo.genruntimeconfig.cache
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\bin\Debug\netcoreapp3.1\newToDo.exe
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\bin\Debug\netcoreapp3.1\newToDo.deps.json
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\bin\Debug\netcoreapp3.1\newToDo.runtimeconfig.json
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\bin\Debug\netcoreapp3.1\newToDo.runtimeconfig.dev.json
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\bin\Debug\netcoreapp3.1\newToDo.dll
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\bin\Debug\netcoreapp3.1\newToDo.pdb
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\bin\Debug\netcoreapp3.1\ToDoApp_Methods.dll
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\bin\Debug\netcoreapp3.1\ToDoApp_Methods.pdb
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\newToDo.csproj.AssemblyReference.cache
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\newToDo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\newToDo.AssemblyInfoInputs.cache
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\newToDo.AssemblyInfo.cs
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\newToDo.csproj.CoreCompileInputs.cache
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\newToDo.csproj.CopyComplete
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\newToDo.dll
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\newToDo.pdb
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\newToDo.genruntimeconfig.cache

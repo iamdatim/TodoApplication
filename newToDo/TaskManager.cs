@@ -66,14 +66,14 @@ namespace newToDo
         }
         public static void ViewToDoList(List<Tasks> TodoList, User currentUser)
         {
-
+            Header.HeaderDisplay("To do List Application");
             if (currentUser.TodoList.Count == 0)
             {
                 MenuMessage.DisplayErrorMessage("You do not have any available todo Item.", "");
                 return;
             }
 
-            Header.HeaderDisplay("\n\nTo do List Application");
+            //Header.HeaderDisplay("To do List Application");
             Console.WriteLine(TableUI.CentreText("Avalable Todo Task", TableUI.tableWidth));
             TableUI.PrintLine();
             Console.ForegroundColor = ConsoleColor.Green;
@@ -95,7 +95,7 @@ namespace newToDo
 
         public static void EditExistingItem(List<Tasks> TodoList, User currentUser)
         {
-
+            Header.HeaderDisplay("To do List Application");
             if (currentUser.TodoList.Count == 0)
             {
                 MenuMessage.DisplayErrorMessage("You do not have any available todo Item to edit.","");
@@ -234,7 +234,7 @@ namespace newToDo
         public static void MarkAsCompleted(List<Tasks> TodoList, User currentUser)
         {
             //Header.HeaderDisplay();
-
+            Header.HeaderDisplay("To do List Application");
             if (currentUser.TodoList.Count == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -273,7 +273,7 @@ namespace newToDo
 
         public static void DeleteItem(List<Tasks> TodoList, User currentUser)
         {
-
+            Header.HeaderDisplay("To do List Application");
             if (currentUser.TodoList.Count == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -284,7 +284,7 @@ namespace newToDo
 
             ViewToDoList(TodoList, currentUser);
             Console.WriteLine();
-            Console.Write("Enter the item number to delete: ");
+            MenuMessage.DisplayActionMessage("Enter the item number to delete: ");
             // int deleteIndex = int.Parse(Console.ReadLine()) - 1;
 
             //int deleteIndex;

@@ -26,15 +26,11 @@ namespace newToDo
                 while (Validation.TryParseInt(choice, out value))
                 {
                     Header.HeaderDisplay("To do List Application");
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"{choice} {MenuMessage.IntErrorMessage}");
-                    Console.ResetColor();
-                    Console.WriteLine($"{MenuMessage.ValidOptionMessage}");
-                    Console.WriteLine(MenuMessage.MainEntryMenu);
-                    //Console.WriteLine(MenuMessage.EnterOption);
+                    MenuMessage.DisplayActionMessage("Please select an option:\n \n1. Register\n2. Login\n3. Exit\n ");
+                    MenuMessage.DisplayErrorMessage($"{choice} is an Invalid Input, your option should not contain alphabet, character.", "Please enter a valid option. eg 1,2,3: ");
                     choice = Console.ReadLine();
                 }
-
+                
 
                 Console.Clear();
 

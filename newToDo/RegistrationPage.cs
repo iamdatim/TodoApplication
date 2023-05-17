@@ -35,6 +35,7 @@ namespace newToDo
             }
             Console.Clear();
 
+            Header.HeaderDisplay("Registration Page");
             MenuMessage.DisplayActionMessage("Please enter your username: ");
             string username = Console.ReadLine();
 
@@ -122,7 +123,8 @@ namespace newToDo
 
             User newUser = user.Register(Users, fullname, username, email, password);
 
-            MenuMessage.DisplaySucessMessage("Registration Sucessful");
+            Header.HeaderDisplay("To do List Application");
+            MenuMessage.DisplaySucessMessage("Registration Sucessful\n\n");
 
 
             //else

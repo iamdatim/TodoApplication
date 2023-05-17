@@ -8,23 +8,6 @@ namespace newToDo
     {
         public static char headerLine = '-';
         public static int headerLineWidth = 118;
-        //public static void HeaderDisplay()
-        //{
-
-
-        //    Console.Clear();
-        //    Animation.ProcessLoading();
-        //    Console.Clear();
-        //    Console.ForegroundColor = ConsoleColor.Green;
-        //    Console.WriteLine(new string(headerLine, headerLineWidth));
-        //    Console.ResetColor();
-        //    Console.WriteLine("----------------------------------------------- To Do List Application -------------------------------------------------");
-        //    Console.ForegroundColor = ConsoleColor.Green;
-        //    Console.WriteLine(new string(headerLine, headerLineWidth));
-        //    Console.ResetColor();
-        //    Console.WriteLine();
-        //    Console.WriteLine();
-        //}
 
         public static void HeaderDisplay(string message)
         {

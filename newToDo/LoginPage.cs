@@ -57,7 +57,7 @@ namespace newToDo
             // Header.HeaderDisplay("Login Page");
             if (currentUser != null)
             {
-                Animation.LoginLoading();
+                //Animation.LoginLoading();
                 Header.HeaderDisplay("To do List Application");
                 //MenuMessage.DisplaySucessMessage("Login Sucessful");
                 bool isChoice = true;
@@ -66,20 +66,25 @@ namespace newToDo
                 {
                     // Header.HeaderDisplay("Datim Bank Plc");
                     Console.WriteLine(MenuMessage.todolistmenu);
-
+                    MenuMessage.DisplayActionMessage("\n\nYour Option: ");
                     string choice = Console.ReadLine();
                     Console.Clear();
 
                     int type;
                     while (Validation.TryParseInt(choice, out type))
                     {
+                        //Header.HeaderDisplay("To do List Application");
+                        //Console.WriteLine(MenuMessage.todolistmenu, "\n\n");
+                        //Console.ForegroundColor = ConsoleColor.Red;
+                        //Console.WriteLine($"{choice} {MenuMessage.IntErrorMessage}");
+                        //Console.ResetColor();
+                        //Console.WriteLine($"{MenuMessage.ValidOptionMessage}");
+                        ////Console.WriteLine(MenuMessage.EnterOption);
+                        //MenuMessage.DisplayActionMessage("Your Option: ");
+
                         Header.HeaderDisplay("To do List Application");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"{choice} {MenuMessage.IntErrorMessage}");
-                        Console.ResetColor();
-                        Console.WriteLine($"{MenuMessage.ValidOptionMessage}");
-                        Console.WriteLine(MenuMessage.todolistmenu);
-                        //Console.WriteLine(MenuMessage.EnterOption);
+                        MenuMessage.DisplayActionMessage("Todo List Menu:\n \n1. Add New Item\n2. View Todo List\n3. Edit Existing Item\n4. Mark Item as Completed\n5. Delete Item\n6. View Your Profile\n7. Logout ");
+                        MenuMessage.DisplayErrorMessage($"{choice} is an Invalid Input, your option should not contain alphabet, character.", "Please enter a valid option. eg 1,2,3: ");
                         choice = Console.ReadLine();
                     }
 
