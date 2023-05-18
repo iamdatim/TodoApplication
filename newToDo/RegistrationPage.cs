@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection.PortableExecutable;
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using ToDoApp_Methods;
 
@@ -126,7 +129,15 @@ namespace newToDo
             Header.HeaderDisplay("To do List Application");
             MenuMessage.DisplaySucessMessage("Registration Sucessful\n\n");
 
+            //string jsonString = JsonSerializer.Serialize(newUser);
 
+            //string filePath = "user.json";
+            //File.WriteAllText(filePath, jsonString);
+
+            string jsonString = JsonConvert.SerializeObject(newUser);
+
+            string filePath = "C:\\Users\\Dairo.T\\source\\repos\\TodoApplication\\newToDo\\user.json";
+            File.WriteAllText(filePath, jsonString);
             //else
             //{
             //    Console.WriteLine("User does not exist.");

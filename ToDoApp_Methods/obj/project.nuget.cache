@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "fXmcPIKBBcgnO2UJYoHpgmBuAUcOUtaYHNoSQC+hQEoJ4y3MC81mhriVFrEtzRQhBAhj1zT7iYX0YLFcv/2rQA==",
+  "dgSpecHash": "Yod3MCvxgHIZ+S+auhQHhy6pe8LQCbGWdYvrPe7MOxMM7a6kGQpxM4Cm8Mu28ELIChOx3Q5t1KNPNlowQKd2Rg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dairo.T\\source\\repos\\TodoApplication\\ToDoApp_Methods\\ToDoApp_Methods.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Dairo.T\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

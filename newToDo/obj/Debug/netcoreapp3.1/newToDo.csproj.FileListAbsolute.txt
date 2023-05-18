@@ -32,3 +32,4 @@ C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\ne
 C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\newToDo.dll
 C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\newToDo.pdb
 C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\obj\Debug\netcoreapp3.1\newToDo.genruntimeconfig.cache
+C:\Users\Dairo.T\source\repos\TodoApplication\newToDo\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

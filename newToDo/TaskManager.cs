@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using ToDoApp_Methods;
@@ -33,14 +36,48 @@ namespace newToDo
             }
 
             Header.HeaderDisplay("To do List Application");
+            //MenuMessage.DisplayActionMessage("Enter the todo Due Date (yyyy/MM/dd): ");
+
+            //DateTime duedate;
+            //while (true)
+            //{
+            //    if(!DateTime.TryParse(Console.ReadLine(), out duedate))
+            //    {
+            //        MenuMessage.DisplayErrorMessage("Invalid date format, date must be in this format\n(yyyy/MM/dd).", "Please enter a valid date: ");
+            //    }
+
+            //    else if()
+            //    {
+            //        MenuMessage.DisplayErrorMessage("date must be a future date.", "Please enter a future date: ");
+            //    }
+
+            //    else
+            //    {
+            //        break;
+            //    }
+            //} 
+
             MenuMessage.DisplayActionMessage("Enter the todo Due Date (yyyy/MM/dd): ");
-            DateTime duedate = DateTime.Parse(Console.ReadLine());
-            DateTime date = DateTime.Now;
-            while (!DateTime.TryParse(duedate.ToShortDateString(), out date) || date < DateTime.Now)
+
+            DateTime duedate;
+            string input;
+            while (!DateTime.TryParse(input = Console.ReadLine(), out duedate) || duedate < DateTime.Today)
             {
-                MenuMessage.DisplayErrorMessage("\n \nInvalid date format, date must be in this format\n(yyyy/MM/dd) and must be a future date.", "Please enter a valid date: ");
-                duedate = DateTime.Parse(Console.ReadLine());
+                if (!DateTime.TryParse(input, out duedate))
+                {
+                    MenuMessage.DisplayErrorMessage("Invalid date format, date must be in this format (yyyy/MM/dd).", "Please enter a valid date: ");
+                }
+                else if (duedate < DateTime.Today)
+                {
+                    MenuMessage.DisplayErrorMessage("Date must be a future date.", "Please enter a future date: ");
+                }
+                else
+                {
+                    break; // Exit the loop if the date is valid
+                }
             }
+
+
 
             string[] validInputs = { "High", "Medium", "Low" };
             string prioritylevel = null;
@@ -58,6 +95,11 @@ namespace newToDo
             }
             //currentUser.TodoList.Add(Task);
             Tasks newTask = Task.AddTask(TodoList, currentUser, listid, title, description, duedate, prioritylevel);
+
+            string jsonString = JsonConvert.SerializeObject(newTask);
+
+            string filePath = "C:\\Users\\Dairo.T\\source\\repos\\TodoApplication\\newToDo\\user.json";
+            File.WriteAllText(filePath, jsonString);
 
             Console.Clear();
             Header.HeaderDisplay("To do List Application");

@@ -103,5 +103,16 @@ namespace ToDoApp_Methods
             return password;
         }
 
+        public bool IsValidDateTime(string input, out DateTime dateTime)
+        {
+            if (!DateTime.TryParse(input, out dateTime))
+            {
+                Console.WriteLine("Invalid date and time format. Please try again.");
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }
