@@ -36,27 +36,6 @@ namespace newToDo
             }
 
             Header.HeaderDisplay("To do List Application");
-            //MenuMessage.DisplayActionMessage("Enter the todo Due Date (yyyy/MM/dd): ");
-
-            //DateTime duedate;
-            //while (true)
-            //{
-            //    if(!DateTime.TryParse(Console.ReadLine(), out duedate))
-            //    {
-            //        MenuMessage.DisplayErrorMessage("Invalid date format, date must be in this format\n(yyyy/MM/dd).", "Please enter a valid date: ");
-            //    }
-
-            //    else if()
-            //    {
-            //        MenuMessage.DisplayErrorMessage("date must be a future date.", "Please enter a future date: ");
-            //    }
-
-            //    else
-            //    {
-            //        break;
-            //    }
-            //} 
-
             MenuMessage.DisplayActionMessage("Enter the todo Due Date (yyyy/MM/dd): ");
 
             DateTime duedate;
@@ -73,11 +52,9 @@ namespace newToDo
                 }
                 else
                 {
-                    break; // Exit the loop if the date is valid
+                    break;
                 }
             }
-
-
 
             string[] validInputs = { "High", "Medium", "Low" };
             string prioritylevel = null;
@@ -85,7 +62,6 @@ namespace newToDo
             {
                 Header.HeaderDisplay("To do List Application");
                 MenuMessage.DisplayActionMessage("Enter the todo Priority Level (High, Medium, Low): ");
-                //Task.PriorityLevel = Console.ReadLine();
                 prioritylevel = Console.ReadLine();
 
                 if (!validInputs.Contains(prioritylevel))
@@ -216,15 +192,25 @@ namespace newToDo
 
                             //Console.Write("Enter the new Due Date: ");
                             MenuMessage.DisplayActionMessage("Enter the new Due Date: ");
-                            DateTime newDuedate = DateTime.Parse(Console.ReadLine());
-                            itemToEdit.DueDate = newDuedate;
-                            DateTime date = DateTime.Now;
-                            while (!DateTime.TryParse(newDuedate.ToShortDateString(), out date) || date < DateTime.Now)
+                            DateTime newDuedate;
+                            string input;
+                            while (!DateTime.TryParse(input = Console.ReadLine(), out newDuedate) || newDuedate < DateTime.Today)
                             {
-                                MenuMessage.DisplayErrorMessage("\n \nInvalid date format, date must be in this format\n(yyyy/MM/dd) and must be a future date.", "Please enter a valid date: ");
-                                newDuedate = DateTime.Parse(Console.ReadLine());
-                                itemToEdit.DueDate = newDuedate;
+                                if (!DateTime.TryParse(input, out newDuedate))
+                                {
+                                    MenuMessage.DisplayErrorMessage("Invalid date format, date must be in this format (yyyy/MM/dd).", "Please enter a valid date: ");
+                                }
+                                else if (newDuedate < DateTime.Today)
+                                {
+                                    MenuMessage.DisplayErrorMessage("Date must be a future date.", "Please enter a future date: ");
+                                }
+                                else
+                                {
+                                    //itemToEdit.DueDate = newDuedate; // Assign the validated date to itemToEdit.DueDate
+                                    break;
+                                }
                             }
+                            itemToEdit.DueDate = newDuedate;
 
                             MenuMessage.DisplaySucessMessage("Item Due Date edited successfully!\n\n");
                             ViewToDoList(TodoList, currentUser);
