@@ -37,19 +37,10 @@ namespace newToDo
             Header.HeaderDisplay("Login Page");
             MenuMessage.DisplayActionMessage("Please enter your Password: ");
             string password = Validation.GetMaskedPassword();
-            while (Validation.EmptyString(password) || !Validation.IsValidPassword(password))
-            {
-                if (Validation.EmptyString(password))
-                {
+            while (Validation.EmptyString(password))
+            {      
                     MenuMessage.DisplayErrorMessage("Password Shouldn't not be empty", "Please enter a valid password:");
                     password = Validation.GetMaskedPassword();
-                }
-
-                else if (!Validation.IsValidEmail(password))
-                {
-                    MenuMessage.DisplayErrorMessage("Password Requiremnet not met, Your Password must contain \nat least 1 Uppercase, Lowercase and Number", "Please enter a valid password:");
-                    password = Validation.GetMaskedPassword();
-                }
             }
 
             User newUser = loginManager.Login(Users, username, password);
@@ -59,12 +50,10 @@ namespace newToDo
             if (currentUser != null)
             {
                 Header.HeaderDisplay("To do List Application");
-                //MenuMessage.DisplaySucessMessage("Login Sucessful");
                 bool isChoice = true;
 
                 while (isChoice)
                 {
-                    // Header.HeaderDisplay("Datim Bank Plc");
                     Console.WriteLine(MenuMessage.todolistmenu);
                     MenuMessage.DisplayActionMessage("\n\nYour Option: ");
                     string choice = Console.ReadLine();
@@ -110,7 +99,6 @@ namespace newToDo
 
                         case "6":
                             Console.Clear();
-                            //ViewYourProfile(registeredUsers);
                             Header.HeaderDisplay("Your Profile");
                             Console.WriteLine($"Name: \t\t {currentUser.Fullname}");
                             Console.WriteLine($"Username: \t {currentUser.Username}");
@@ -129,22 +117,15 @@ namespace newToDo
 
                         default:
                             Header.HeaderDisplay("To do List Application");
-                            MenuMessage.DisplayErrorMessage($"{choice} is an Invalid Input, your option should not contain alphabet, character.", "Please enter a valid option.\n");
+                            MenuMessage.DisplayErrorMessage($"{choice} is an Invalid Input, your option should be from 1 to 7.", "\n");
                             break;
-
-                        //default:
-                        //    Header.HeaderDisplay("To do List Application");
-                        //    Console.ForegroundColor = ConsoleColor.Red;
-                        //    Console.WriteLine($"{choice} {MenuMessage.IntErrorMessage}");
-                        //    Console.ResetColor();
-                        //    break;
                     }
                 }
             }
 
             else
             {
-                MenuMessage.DisplayErrorMessage("User Does not exist", "Kindly register an account to be able to login");
+                MenuMessage.DisplayErrorMessage("User Does not exist", "Kindly register an account to be able to login\n\n");
             }
 
 

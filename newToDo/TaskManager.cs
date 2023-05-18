@@ -22,7 +22,7 @@ namespace newToDo
             string title = Console.ReadLine();
             while (Validation.EmptyString(title))
             {
-                MenuMessage.DisplayErrorMessage("\n \nTodo Title must not be empty.", "Please enter a valid todo Title: ");
+                MenuMessage.DisplayErrorMessage("Todo Title must not be empty.", "Please enter a valid todo Title: ");
                 title = Console.ReadLine();
             }
 
@@ -31,7 +31,7 @@ namespace newToDo
             string description = Console.ReadLine();
             while (string.IsNullOrWhiteSpace(description))
             {
-                MenuMessage.DisplayErrorMessage("\n \nTodo Description must not be empty.", "Please enter a valid todo Description: ");
+                MenuMessage.DisplayErrorMessage("Todo Description must not be empty.", "Please enter a valid todo Description: ");
                 description = Console.ReadLine();
             }
 
@@ -69,19 +69,11 @@ namespace newToDo
                     MenuMessage.DisplayErrorMessage("\n \nInvalid Priority Level.", "Please enter a valid Priority Level: ");
                 }
             }
-            //currentUser.TodoList.Add(Task);
             Tasks newTask = Task.AddTask(TodoList, currentUser, listid, title, description, duedate, prioritylevel, userId);
-
-            string jsonString = JsonConvert.SerializeObject(newTask);
-
-            string filePath = "C:\\Users\\Dairo.T\\source\\repos\\TodoApplication\\newToDo\\user.json";
-            File.WriteAllText(filePath, jsonString);
 
             Console.Clear();
             Header.HeaderDisplay("To do List Application");
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Item added successfully!");
-            Console.ResetColor();
+            MenuMessage.DisplaySucessMessage("Item added successfully!");
 
 
         }
@@ -93,8 +85,6 @@ namespace newToDo
                 MenuMessage.DisplayErrorMessage("You do not have any available todo Item.", "");
                 return;
             }
-
-            //Header.HeaderDisplay("To do List Application");
             Console.WriteLine(TableUI.CentreText("Avalable Todo Task", TableUI.tableWidth));
             TableUI.PrintLine();
             Console.ForegroundColor = ConsoleColor.Green;
@@ -153,13 +143,12 @@ namespace newToDo
                     {
                         case "1":
                             Header.HeaderDisplay("To do List Application");
-                            //Console.Write("Enter the new title: ");
                             MenuMessage.DisplayActionMessage("Enter the new title: ");
                             string newTitle = Console.ReadLine();
                             itemToEdit.Title = newTitle;
                             while (string.IsNullOrWhiteSpace(newTitle))
                             {
-                                MenuMessage.DisplayErrorMessage("\n \nTodo Title must not be empty.", "Please enter a valid todo Title: ");
+                                MenuMessage.DisplayErrorMessage("Todo Title must not be empty.", "Please enter a valid todo Title: ");
                                 newTitle = Console.ReadLine();
                                 itemToEdit.Title = newTitle;
                             }
@@ -176,7 +165,7 @@ namespace newToDo
                             itemToEdit.Description = newDescription;
                             while (string.IsNullOrWhiteSpace(newDescription))
                             {
-                                MenuMessage.DisplayErrorMessage("\n \nTodo Description must not be empty.", "Please enter a valid todo Description: ");
+                                MenuMessage.DisplayErrorMessage("Todo Description must not be empty.", "Please enter a valid todo Description: ");
                                 newDescription = Console.ReadLine();
                                 itemToEdit.Description = newDescription;
                             }

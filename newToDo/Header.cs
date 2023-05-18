@@ -17,9 +17,7 @@ namespace newToDo
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(new string(headerLine, headerLineWidth));
             Console.ResetColor();
-            //Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(CentreText(message, headerLineWidth));
-            //Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(new string(headerLine, headerLineWidth));
             Console.ResetColor();

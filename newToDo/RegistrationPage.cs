@@ -21,18 +21,23 @@ namespace newToDo
             MenuMessage.DisplayActionMessage("Please enter your Full Name: ");
             string fullname = Console.ReadLine();
             int namevalue;
-            while (Validation.EmptyString(fullname) || !Validation.TryParseInt(fullname, out namevalue))
+            while (Validation.EmptyString(fullname) || !Validation.TryParseInt(fullname, out namevalue) || !Validation.IsSpecialCharacter(fullname))
             {
                 if (Validation.EmptyString(fullname))
                 {
-                    //Header.HeaderDisplay();
                     MenuMessage.DisplayErrorMessage("Name Shouldn't not be empty", "Please enter a valid Full Name:");
+                    fullname = Console.ReadLine();
+                }
+
+                else if(!Validation.TryParseInt(fullname, out namevalue))
+                {
+                    MenuMessage.DisplayErrorMessage("Name Shouldn't not contain number", "Please enter a valid username:");
                     fullname = Console.ReadLine();
                 }
 
                 else
                 {
-                    MenuMessage.DisplayErrorMessage("Name Shouldn't not contain number", "Please enter a valid username:");
+                    MenuMessage.DisplayErrorMessage("Name Shouldn't not contain special character", "Please enter a valid username:");
                     fullname = Console.ReadLine();
                 }
             }
@@ -47,14 +52,12 @@ namespace newToDo
             {
                 if (Validation.EmptyString(username))
                 {
-                    //Header.HeaderDisplay();
                     MenuMessage.DisplayErrorMessage("Username Shouldn't not be empty", "Please enter a valid username:");
                     username = Console.ReadLine();
                 }
 
                 else if (!Validation.TryParseInt(username, out value))
                 {
-                    //.HeaderDisplay("Registration Page");
                     MenuMessage.DisplayErrorMessage("Name Shouldn't not contain number", "Please enter a valid username:");
                     username = Console.ReadLine();
                 }
@@ -128,20 +131,6 @@ namespace newToDo
 
             Header.HeaderDisplay("To do List Application");
             MenuMessage.DisplaySucessMessage("Registration Sucessful\n\n");
-
-            //string jsonString = JsonSerializer.Serialize(newUser);
-
-            //string filePath = "user.json";
-            //File.WriteAllText(filePath, jsonString);
-
-            string jsonString = JsonConvert.SerializeObject(newUser);
-
-            string filePath = "C:\\Users\\Dairo.T\\source\\repos\\TodoApplication\\newToDo\\user.json";
-            File.WriteAllText(filePath, jsonString);
-            //else
-            //{
-            //    Console.WriteLine("User does not exist.");
-            //}
         }
     }
 }

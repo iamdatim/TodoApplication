@@ -11,12 +11,10 @@ namespace newToDo
         {
             List<User> Users = new List<User>();
             List<Tasks> TodoList = null;
-            // List<BankAccount> UsersBankAccount = new List<BankAccount>();
 
             Header.HeaderDisplay("To Do List Application");
             while (true)
             {
-                // Header.HeaderDisplay("Datim Bank Plc");
                 Console.WriteLine(MenuMessage.MainEntryMenu);
 
                 string choice = Console.ReadLine();
@@ -51,9 +49,7 @@ namespace newToDo
 
                     default:
                         Header.HeaderDisplay("To do List Application");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"{choice} {MenuMessage.IntErrorMessage}");
-                        Console.ResetColor();
+                        MenuMessage.DisplayErrorMessage($"{choice} is an Invalid Input, your option should be from 1 to 3.", "\n");
                         break;
                 }
             }
