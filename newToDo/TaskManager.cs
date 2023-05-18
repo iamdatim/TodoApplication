@@ -15,7 +15,7 @@ namespace newToDo
         {
             Tasks Task = new Tasks();
             int listid = currentUser.TodoList.Count+1;
-            Task.UserId = currentUser.ID;
+            Guid userId = currentUser.ID;
 
             Header.HeaderDisplay("To do List Application");
             MenuMessage.DisplayActionMessage("Enter the todo Title: ");
@@ -70,7 +70,7 @@ namespace newToDo
                 }
             }
             //currentUser.TodoList.Add(Task);
-            Tasks newTask = Task.AddTask(TodoList, currentUser, listid, title, description, duedate, prioritylevel);
+            Tasks newTask = Task.AddTask(TodoList, currentUser, listid, title, description, duedate, prioritylevel, userId);
 
             string jsonString = JsonConvert.SerializeObject(newTask);
 
@@ -170,8 +170,6 @@ namespace newToDo
 
                         case "2":
                             Header.HeaderDisplay("To do List Application");
-
-                            //Console.Write("Enter the new Description: ");
                             MenuMessage.DisplayActionMessage("Enter the new Description: ");
 
                             string newDescription = Console.ReadLine();
@@ -190,7 +188,6 @@ namespace newToDo
                         case "3":
                             Header.HeaderDisplay("To do List Application");
 
-                            //Console.Write("Enter the new Due Date: ");
                             MenuMessage.DisplayActionMessage("Enter the new Due Date: ");
                             DateTime newDuedate;
                             string input;
@@ -206,7 +203,6 @@ namespace newToDo
                                 }
                                 else
                                 {
-                                    //itemToEdit.DueDate = newDuedate; // Assign the validated date to itemToEdit.DueDate
                                     break;
                                 }
                             }
@@ -264,7 +260,6 @@ namespace newToDo
 
         public static void MarkAsCompleted(List<Tasks> TodoList, User currentUser)
         {
-            //Header.HeaderDisplay();
             Header.HeaderDisplay("To do List Application");
             if (currentUser.TodoList.Count == 0)
             {
@@ -277,8 +272,6 @@ namespace newToDo
             ViewToDoList(TodoList, currentUser);
             Console.WriteLine();
             Console.Write("Enter the item number to mark as Completed: ");
-            // int itemId = int.Parse(Console.ReadLine());
-            //string number = Console.ReadLine();
 
             int itemId;
 
@@ -316,39 +309,12 @@ namespace newToDo
             ViewToDoList(TodoList, currentUser);
             Console.WriteLine();
             MenuMessage.DisplayActionMessage("Enter the item number to delete: ");
-            // int deleteIndex = int.Parse(Console.ReadLine()) - 1;
-
-            //int deleteIndex;
-            //while (int.TryParse(Console.ReadLine(), out deleteIndex))
-            //{
-            //    deleteIndex =- 1;
-            //    // Use the updated value of deleteIndex
-            //}
-
-            //if (deleteIndex >= 0 && deleteIndex < currentUser.TodoList.Count)
-            //{
-            //    currentUser.TodoList.RemoveAt(deleteIndex);
-
-
-            //    Console.ForegroundColor = ConsoleColor.Green;
-            //    Console.WriteLine("Item deleted successfully!");
-            //    Console.ResetColor();
-
-            //}
-            //else
-            //{
-
-            //    Console.ForegroundColor = ConsoleColor.Red;
-            //    Console.WriteLine("Invalid item number.");
-            //    Console.ResetColor();
-            //}
 
             string input = Console.ReadLine();
             int deleteIndex;
 
             if (int.TryParse(input, out deleteIndex))
             {
-                // Adjust the index to match the list index (subtracting 1)
                 deleteIndex--;
 
                 if (deleteIndex >= 0 && deleteIndex < currentUser.TodoList.Count)

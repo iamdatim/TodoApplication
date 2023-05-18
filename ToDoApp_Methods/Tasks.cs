@@ -15,9 +15,9 @@ namespace ToDoApp_Methods
         public bool IsComplete { get; set; }
         public Guid UserId { get; set; }
 
-        public Tasks AddTask(List<Tasks> TodoList, User currentUser, int listid, string title, string description, DateTime duedate, string prioritylevel)
+        public Tasks AddTask(List<Tasks> TodoList, User currentUser, int listid, string title, string description, DateTime duedate, string prioritylevel, Guid userId)
         {
-            Tasks newTask = new Tasks {ListId = listid, Title = title, Description = description, DueDate = duedate, PriorityLevel = prioritylevel };
+            Tasks newTask = new Tasks {ListId = listid, Title = title, Description = description, DueDate = duedate, PriorityLevel = prioritylevel, UserId = userId };
             currentUser.TodoList.Add(newTask);
             return newTask;
         }
