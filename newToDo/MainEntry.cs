@@ -35,7 +35,7 @@ namespace newToDo
                 switch (choice)
                 {
                     case "1":
-                        RegistrationPage.Registration(Users);
+                        RegistrationPage.Registration(Users, TodoList);
                         break;
 
                     case "2":

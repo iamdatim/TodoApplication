@@ -107,7 +107,7 @@ namespace ToDoApp_Methods
         {
             if (!DateTime.TryParse(input, out dateTime))
             {
-                Console.WriteLine("Invalid date and time format. Please try again.");
+             //   Console.WriteLine("Invalid date and time format. Please try again.");
                 return false;
             }
 

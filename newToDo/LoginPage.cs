@@ -45,8 +45,13 @@ namespace newToDo
 
             User newUser = loginManager.Login(Users, username, password);
 
-   
-            User currentUser = Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+
+            ReadFromJson readFromJson = new ReadFromJson();
+            List<User> result = readFromJson.ReadFromJsons("Users.json");
+
+            User currentUser = result.FirstOrDefault(x => x.Password == password && x.Username == username);
+
+            //User currentUser = Users.FirstOrDefault(u => u.Username == username && u.Password == password);
             if (currentUser != null)
             {
                 Header.HeaderDisplay("To do List Application");
@@ -72,7 +77,7 @@ namespace newToDo
                     {
                         case "1":
                             Console.Clear();
-                            TaskManager.AddNewItem(TodoList, currentUser);
+                            TaskManager.AddNewItem(TodoList, currentUser, Users);
                             break;
 
                         case "2":
@@ -83,18 +88,18 @@ namespace newToDo
 
                         case "3":
                             Console.Clear();
-                            TaskManager.EditExistingItem(TodoList, currentUser);
+                            TaskManager.EditExistingItem(TodoList, currentUser, Users);
 
                             break;
 
                         case "4":
                             Console.Clear();
-                            TaskManager.MarkAsCompleted(TodoList, currentUser);
+                            TaskManager.MarkAsCompleted(TodoList, currentUser, Users);
                             break;
 
                         case "5":
                             Console.Clear();
-                            TaskManager.DeleteItem(TodoList, currentUser);
+                            TaskManager.DeleteItem(TodoList, currentUser, Users);
                             break;
 
                         case "6":

@@ -12,7 +12,7 @@ namespace newToDo
 {
     internal class RegistrationPage
     {
-        public static void Registration(List<User> Users)
+        public static void Registration(List<User> Users, List<Tasks> TodoList)
         {
 
             User user = new User();
@@ -122,12 +122,22 @@ namespace newToDo
                 ConfirmPassword = Validation.GetMaskedPassword();
             }
 
+
+
             if (Validation.UserExists(Users, user))
             {
                 Console.WriteLine("User already exists!");
             }
 
+            //if(ConfirmPassword != password)
+            //{
+
+            //}
+
             User newUser = user.Register(Users, fullname, username, email, password);
+
+            WriteToJson writeToJson = new WriteToJson();
+            writeToJson.WriteToJsons(Users, TodoList);
 
             Header.HeaderDisplay("To do List Application");
             MenuMessage.DisplaySucessMessage("Registration Sucessful\n\n");

@@ -11,7 +11,7 @@ namespace newToDo
 {
     internal class TaskManager
     {
-        public static void AddNewItem(List<Tasks> TodoList, User currentUser)
+        public static void AddNewItem(List<Tasks> TodoList, User currentUser, List<User> Users)
         {
             Tasks Task = new Tasks();
             int listid = currentUser.TodoList.Count+1;
@@ -71,6 +71,9 @@ namespace newToDo
             }
             Tasks newTask = Task.AddTask(TodoList, currentUser, listid, title, description, duedate, prioritylevel, userId);
 
+            WriteToJson writeToJson = new WriteToJson();
+            writeToJson.WriteToJsons(Users, TodoList);
+
             Console.Clear();
             Header.HeaderDisplay("To do List Application");
             MenuMessage.DisplaySucessMessage("Item added successfully!");
@@ -104,7 +107,7 @@ namespace newToDo
             Console.WriteLine("\n \n");
         }
 
-        public static void EditExistingItem(List<Tasks> TodoList, User currentUser)
+        public static void EditExistingItem(List<Tasks> TodoList, User currentUser, List<User> Users)
         {
             Header.HeaderDisplay("To do List Application");
             if (currentUser.TodoList.Count == 0)
@@ -152,6 +155,9 @@ namespace newToDo
                                 newTitle = Console.ReadLine();
                                 itemToEdit.Title = newTitle;
                             }
+                            WriteToJson editTitle = new WriteToJson();
+                            editTitle.WriteToJsons(Users, TodoList);
+
                             MenuMessage.DisplaySucessMessage("Item Title edited successfully!\n\n");
                             ViewToDoList(TodoList, currentUser);
                             Console.WriteLine();
@@ -169,6 +175,10 @@ namespace newToDo
                                 newDescription = Console.ReadLine();
                                 itemToEdit.Description = newDescription;
                             }
+
+                            WriteToJson editDescription = new WriteToJson();
+                            editDescription.WriteToJsons(Users, TodoList);
+
                             MenuMessage.DisplaySucessMessage("Item Description edited successfully!\n\n");
                             ViewToDoList(TodoList, currentUser);
                             Console.WriteLine();
@@ -197,6 +207,9 @@ namespace newToDo
                             }
                             itemToEdit.DueDate = newDuedate;
 
+                            WriteToJson editDueDate = new WriteToJson();
+                            editDueDate.WriteToJsons(Users, TodoList);
+
                             MenuMessage.DisplaySucessMessage("Item Due Date edited successfully!\n\n");
                             ViewToDoList(TodoList, currentUser);
                             Console.WriteLine();
@@ -218,6 +231,9 @@ namespace newToDo
                                     MenuMessage.DisplayErrorMessage("\nInvalid Priority Level.", "Please enter a valid Priority Level: ");
                                 }
                             }
+
+                            WriteToJson editPriority = new WriteToJson();
+                            editPriority.WriteToJsons(Users, TodoList);
 
                             MenuMessage.DisplaySucessMessage("Item Priority Level edited successfully!\n\n");
 
@@ -247,7 +263,7 @@ namespace newToDo
             }
         }
 
-        public static void MarkAsCompleted(List<Tasks> TodoList, User currentUser)
+        public static void MarkAsCompleted(List<Tasks> TodoList, User currentUser, List<User> Users)
         {
             Header.HeaderDisplay("To do List Application");
             if (currentUser.TodoList.Count == 0)
@@ -259,6 +275,10 @@ namespace newToDo
             }
 
             ViewToDoList(TodoList, currentUser);
+
+            WriteToJson markAsComplete = new WriteToJson();
+            markAsComplete.WriteToJsons(Users, TodoList);
+
             Console.WriteLine();
             Console.Write("Enter the item number to mark as Completed: ");
 
@@ -284,7 +304,7 @@ namespace newToDo
 
         }
 
-        public static void DeleteItem(List<Tasks> TodoList, User currentUser)
+        public static void DeleteItem(List<Tasks> TodoList, User currentUser, List<User> Users)
         {
             Header.HeaderDisplay("To do List Application");
             if (currentUser.TodoList.Count == 0)
@@ -296,6 +316,9 @@ namespace newToDo
             }
 
             ViewToDoList(TodoList, currentUser);
+
+            WriteToJson deleteTask = new WriteToJson();
+            deleteTask.WriteToJsons(Users, TodoList);
             Console.WriteLine();
             MenuMessage.DisplayActionMessage("Enter the item number to delete: ");
 
