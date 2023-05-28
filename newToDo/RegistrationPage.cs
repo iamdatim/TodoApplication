@@ -12,7 +12,7 @@ namespace newToDo
 {
     internal class RegistrationPage
     {
-        public static void Registration(List<User> Users, List<Tasks> TodoList)
+        public static void Registration(List<User> Users)
         {
 
             User user = new User();
@@ -137,7 +137,7 @@ namespace newToDo
             User newUser = user.Register(Users, fullname, username, email, password);
 
             WriteToJson writeToJson = new WriteToJson();
-            writeToJson.WriteToJsons(Users, TodoList);
+            writeToJson.WriteToJsons(Users);
 
             Header.HeaderDisplay("To do List Application");
             MenuMessage.DisplaySucessMessage("Registration Sucessful\n\n");

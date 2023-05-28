@@ -11,7 +11,8 @@ namespace newToDo
     {
         public List<User> ReadFromJsons(string fullPath)
         {
-            string jsonContent = File.ReadAllText("Users.json");
+            fullPath = GettingPath.GetPath("Users.json");
+            string jsonContent = File.ReadAllText(fullPath);
             return JsonSerializer.Deserialize<List<User>>(jsonContent);
         }
     }

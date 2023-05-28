@@ -72,7 +72,7 @@ namespace newToDo
             Tasks newTask = Task.AddTask(TodoList, currentUser, listid, title, description, duedate, prioritylevel, userId);
 
             WriteToJson writeToJson = new WriteToJson();
-            writeToJson.WriteToJsons(Users, TodoList);
+            writeToJson.WriteToJsons(Users);
 
             Console.Clear();
             Header.HeaderDisplay("To do List Application");
@@ -156,7 +156,7 @@ namespace newToDo
                                 itemToEdit.Title = newTitle;
                             }
                             WriteToJson editTitle = new WriteToJson();
-                            editTitle.WriteToJsons(Users, TodoList);
+                            editTitle.WriteToJsons(Users);
 
                             MenuMessage.DisplaySucessMessage("Item Title edited successfully!\n\n");
                             ViewToDoList(TodoList, currentUser);
@@ -177,7 +177,7 @@ namespace newToDo
                             }
 
                             WriteToJson editDescription = new WriteToJson();
-                            editDescription.WriteToJsons(Users, TodoList);
+                            editDescription.WriteToJsons(Users);
 
                             MenuMessage.DisplaySucessMessage("Item Description edited successfully!\n\n");
                             ViewToDoList(TodoList, currentUser);
@@ -208,7 +208,7 @@ namespace newToDo
                             itemToEdit.DueDate = newDuedate;
 
                             WriteToJson editDueDate = new WriteToJson();
-                            editDueDate.WriteToJsons(Users, TodoList);
+                            editDueDate.WriteToJsons(Users);
 
                             MenuMessage.DisplaySucessMessage("Item Due Date edited successfully!\n\n");
                             ViewToDoList(TodoList, currentUser);
@@ -233,7 +233,7 @@ namespace newToDo
                             }
 
                             WriteToJson editPriority = new WriteToJson();
-                            editPriority.WriteToJsons(Users, TodoList);
+                            editPriority.WriteToJsons(Users);
 
                             MenuMessage.DisplaySucessMessage("Item Priority Level edited successfully!\n\n");
 
@@ -276,9 +276,6 @@ namespace newToDo
 
             ViewToDoList(TodoList, currentUser);
 
-            WriteToJson markAsComplete = new WriteToJson();
-            markAsComplete.WriteToJsons(Users, TodoList);
-
             Console.WriteLine();
             Console.Write("Enter the item number to mark as Completed: ");
 
@@ -295,6 +292,9 @@ namespace newToDo
 
             Tasks item = currentUser.TodoList[itemId - 1];
             item.IsComplete = true;
+
+            WriteToJson markAsComplete = new WriteToJson();
+            markAsComplete.WriteToJsons(Users);
 
             Console.Clear();
             Header.HeaderDisplay("To do List Application");
@@ -316,9 +316,6 @@ namespace newToDo
             }
 
             ViewToDoList(TodoList, currentUser);
-
-            WriteToJson deleteTask = new WriteToJson();
-            deleteTask.WriteToJsons(Users, TodoList);
             Console.WriteLine();
             MenuMessage.DisplayActionMessage("Enter the item number to delete: ");
 
@@ -332,6 +329,8 @@ namespace newToDo
                 if (deleteIndex >= 0 && deleteIndex < currentUser.TodoList.Count)
                 {
                     currentUser.TodoList.RemoveAt(deleteIndex);
+                    WriteToJson deleteTask = new WriteToJson();
+                    deleteTask.WriteToJsons(Users);
 
                     Header.HeaderDisplay("To do List Application");
                     Console.ForegroundColor = ConsoleColor.Green;

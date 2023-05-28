@@ -11,6 +11,9 @@ namespace newToDo
         {
             List<User> Users = new List<User>();
             List<Tasks> TodoList = null;
+            //string fullPath = null;
+
+
 
             Header.HeaderDisplay("To Do List Application");
             while (true)
@@ -35,7 +38,7 @@ namespace newToDo
                 switch (choice)
                 {
                     case "1":
-                        RegistrationPage.Registration(Users, TodoList);
+                        RegistrationPage.Registration(Users);
                         break;
 
                     case "2":

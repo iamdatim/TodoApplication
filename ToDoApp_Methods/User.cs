@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Intrinsics.X86;
 using System.Threading.Tasks;
 
 namespace ToDoApp_Methods
@@ -12,6 +13,8 @@ namespace ToDoApp_Methods
         public string Email { get; set; }
         public string Password { get; set; }
         public List<Tasks> TodoList { get; set; } = new List<Tasks>();
+
+       
 
         public User Register(List<User> Users, string fullname, string username, string email, string password)
         {

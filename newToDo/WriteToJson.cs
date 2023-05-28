@@ -24,7 +24,7 @@ namespace newToDo
         //    Console.WriteLine("Json is written");
         //}
 
-        public void WriteToJsons(List<User> Users, List<Tasks> TodoList)
+        public void WriteToJsons(List<User> Users)
         {
             //string fileName = "Users.json";
             //string currentDir = Environment.CurrentDirectory;
@@ -36,10 +36,10 @@ namespace newToDo
             Data data = new Data
             {
                 DataUsers = Users,
-               // DataTasks = TodoList
+                // DataTasks = TodoList
             };
 
-            string jsonString = JsonSerializer.Serialize(data);
+            string jsonString = JsonSerializer.Serialize(Users);
 
             using (StreamWriter writer = new StreamWriter(fullPath))
             {

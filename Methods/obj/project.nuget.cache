@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "fTiUwCPypAHC6e4qccv/YVuqaFa6SOcXaK73rkA45F9pmk6dDecFwWqQ5AxP7ZJj8WzeNDrv6UY5XfvX5c0cFA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dairo.T\\source\\repos\\TodoApplication\\Methods\\Methods.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dairo.T\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
